@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+ background-color: #ffffff;
+}
+
+.solid-background {
+    background-color: #131213; /* Your desired background color */
+    opacity: 1; /* Set opacity to 1 for a solid background */
+    /* Add any additional styles you need */
+  }
+
+  .hidden {
+    display: none;
+  }
