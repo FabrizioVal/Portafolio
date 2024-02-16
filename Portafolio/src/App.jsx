@@ -4,6 +4,7 @@ import Navbar from './components/navbar';
 import Start from './components/start';
 import Portfolio from './components/portafolio';
 import Aboutme from './components/aboutme';
+import Work from './components/work';
 import './index.css';
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
         </div>
       </div>
       <Aboutme />
+      <Work />
     </div>
   );
 }
