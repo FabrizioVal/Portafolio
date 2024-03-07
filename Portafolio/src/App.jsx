@@ -1,52 +1,61 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/navbar';
-import Start from './components/start';
-import Portfolio from './components/portafolio';
+import StartPortfolio from './components/start-portfolio';
 import Aboutme from './components/aboutme';
 import Work from './components/work';
 import Footer from './components/footer';
 import './index.css';
 
 function App() {
-  const [isNavbarVisible, setIsNavbarVisible] = useState(false); // Start as invisible
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const startSection = document.getElementById('start'); // Get a reference to the start component
-      const startSectionHeight = startSection.offsetHeight; // Get its height
-
-      const scrollPosition = window.scrollY; // Get the scroll position
-
-      if (scrollPosition >= startSectionHeight) {
-        setIsNavbarVisible(true); // If beyond or at start height, make it visible
-      } else {
-        setIsNavbarVisible(false); // If below start height, make it invisible
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  
+  const scrollThreshold = 600; // Set your desired scroll threshold here
 
   return (
-    <div className="flex flex-col h-screen">
-      <Navbar className={isNavbarVisible ? '' : 'hidden'} />
-      <div className="flex flex-1" id="start">
-        <div className="w-2/3">
-          <Start />
-        </div>
-        <div className="w-1/3">
-          <Portfolio />
-        </div>
-      </div>
+    <div className="flex flex-col">
+      <div>
+      <Navbar scrollThreshold={scrollThreshold}/>
+      <div>
+      <StartPortfolio/>
       <Aboutme />
       <Work />
       <Footer />
+      </div>
+      </div>
     </div>
   );
 }
 
 export default App;
+
+/*import React from 'react';
+import Navbar from './components/navbar';
+import StartPortfolio from './components/start-portfolio';
+import Aboutme from './components/aboutme';
+import Work from './components/work';
+import Footer from './components/footer';
+import './index.css';
+
+function App() {
+  const scrollThreshold = 100; // Set your desired scroll threshold here
+
+  return (
+    <div className="flex flex-col h-screen">
+      <Navbar scrollThreshold={scrollThreshold} style={{ zIndex: 1000 }} />
+      <div className="flex flex-1">
+        <div className="w-2/3">
+          <StartPortfolio />
+        </div>
+        <div className="w-1/3">
+          <div className="relative">
+            <Aboutme />
+            <Work />
+            <Footer />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default App;
+ */
