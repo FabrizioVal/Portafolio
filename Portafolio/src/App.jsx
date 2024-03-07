@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/navbar';
 import Start from './components/start';
@@ -9,18 +8,19 @@ import Footer from './components/footer';
 import './index.css';
 
 function App() {
-  const [isNavbarVisible, setIsNavbarVisible] = useState(true);
+  const [isNavbarVisible, setIsNavbarVisible] = useState(false); // Start as invisible
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      // Adjust the scroll position value based on your design
-      const triggerScrollPosition = 200;
+      const startSection = document.getElementById('start'); // Get a reference to the start component
+      const startSectionHeight = startSection.offsetHeight; // Get its height
 
-      if (scrollPosition > triggerScrollPosition) {
-        setIsNavbarVisible(false);
+      const scrollPosition = window.scrollY; // Get the scroll position
+
+      if (scrollPosition >= startSectionHeight) {
+        setIsNavbarVisible(true); // If beyond or at start height, make it visible
       } else {
-        setIsNavbarVisible(true);
+        setIsNavbarVisible(false); // If below start height, make it invisible
       }
     };
 
@@ -34,7 +34,7 @@ function App() {
   return (
     <div className="flex flex-col h-screen">
       <Navbar className={isNavbarVisible ? '' : 'hidden'} />
-      <div className="flex flex-1">
+      <div className="flex flex-1" id="start">
         <div className="w-2/3">
           <Start />
         </div>

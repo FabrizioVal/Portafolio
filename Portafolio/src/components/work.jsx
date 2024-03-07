@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import demo_image1 from '../assets/demo_image1.png';
-import demo_image2 from '../assets/demo_image2.png';
+import demo_image2 from '../assets/demo_image2.jpg';
 import '../styles/styles.css';
 
 const Work = () => {
@@ -29,19 +29,19 @@ const Work = () => {
   };
 
   return (
-    <div className='mt-10 mb-10 main-container flex' >
+    <div className='mt-10 mb-20 main-container flex' style={{ minHeight: '90vh' }}>
       {/* Left side - Image displayer */}
       <div className="flex-1 position-relative ml-4">
         <img
           src={selectedWork.imageUrl}
           alt={selectedWork.title}
-          className="w-full h-full transition-opacity duration-500 ease-in-out"
-          style={{ opacity: imageOpacity }}
+          className="w-full h-full object-cover transition-opacity duration-500 ease-in-out"
+          style={{ opacity: imageOpacity, width: '110%', height: '110%' }}
         />
       </div>
 
       {/* Right side - List of titles */}
-      <div className="text-left flex-1 ml-4 mr-4">
+      <div className="flex-1 text-left mx-8  p-4">
         <h1 className="text-3xl font-bold mb-4 text-right">My latest works</h1>
         <ul>
           {works.map((work) => (
