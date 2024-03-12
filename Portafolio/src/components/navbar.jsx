@@ -68,9 +68,16 @@ export function NavbarSimple({ scrollThreshold }) {
   return (
     <Navbar
       className={`solid-background h-max max-w-full rounded-none mx-auto px-20 py-1 sticky top-0 bg-[#131213] shadow-none border-none manrope-font ${
-        isNavbarVisible ? "" : "hidden"
+        isNavbarVisible ? "navbar-enter navbar-enter-active" : "navbar-exit navbar-exit-active"
       }`}
-      style={{ zIndex: 1000 }}
+      style={{
+        zIndex: 1000,
+        position: "fixed",
+        top: 0,
+        width: "100%", // Make sure it takes the full width of the viewport
+        
+        
+      }}
     >
       <div className=" flex items-center justify-between text-[#ffffff]">
         <Typography

@@ -44,3 +44,29 @@
     height: 100vh;
     margin-bottom: 20px; /* Adjust the margin value as needed */
   }
+
+  /* Navbar config */
+
+  /* Classes for the sliding and opacity animations */
+  
+.navbar-enter {
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
+.navbar-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.navbar-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.navbar-exit-active {
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: opacity 0.3s, transform 0.3s;
+}
