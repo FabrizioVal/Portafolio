@@ -8,7 +8,11 @@ import gmail from '../assets/gmail_logo.png';
 import { ReactTyped } from "react-typed";
 import { AnimatePresence } from "framer-motion";
 
+
 const StartPortfolio = () => {
+
+  
+  
   // Variants for the GIF animation
   const gifVariants = {
     hidden: {
@@ -42,6 +46,8 @@ const StartPortfolio = () => {
       .catch(error => console.error('Error copying to clipboard:', error));
   };
 
+
+  
   return (
     <>
       {/* Black screen with text and GIF animation */}
@@ -103,14 +109,14 @@ const StartPortfolio = () => {
                 <AnimatePresence>
                   {copied && (
                     <motion.div
-                    className="origin-top absolute mb-14 top-0 right-0  w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 transform translate-y-[-100%]"
+                    className="origin-top absolute mb-14 top-0 right-0  w-40 rounded-md shadow-lg bg-black ring-1 ring-black ring-opacity-5 transform translate-y-[-100%]"
                       initial={{ opacity: 0, scale: 0, y: 90, x:50 }}
                       animate={{ opacity: 1, scale: 1, y: 0, x:50 }}
                       exit={{ opacity: 0, scale: 0, y: 90, x: 50 }}
                       transition={{ duration: 0.3 }}
                     >
                       <div className="py-1">
-                        <p className="text-sm  text-gray-900 px-4 py-2">Copied to clipboard!</p>
+                        <p className="text-sm  text-white px-4 py-2">Copied to clipboard!</p>
                       </div>
                     </motion.div>
                   )}
