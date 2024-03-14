@@ -6,6 +6,7 @@ import spanish_flag from '../assets/spanish_flag.png';
 import github from '../assets/github_logo.png';
 import gmail from '../assets/gmail_logo.png';
 import { ReactTyped } from "react-typed";
+import { AnimatePresence } from "framer-motion";
 
 const StartPortfolio = () => {
   // Variants for the GIF animation
@@ -27,7 +28,7 @@ const StartPortfolio = () => {
 
   // State for copied status
   const [copied, setCopied] = useState(false);
-  const email = 'example@gmail.com'; // Replace this with your actual Gmail address
+  const email = 'fabriziogabrielvallone@gmail.com'; // Replace this with your actual Gmail address
 
   // Function to handle email copy
   const handleCopy = () => {
@@ -90,21 +91,30 @@ const StartPortfolio = () => {
 
               <hr className="mb-10 border-t-2 border-black text-left" />
               
-              <p className="text-xl mb-28">I’m a student who’s learning the ropes of being a full stack-developer. </p>
+              <p className="text-xl mb-20">I’m a student who’s learning the ropes of being a full stack-developer. </p>
 
               <div className="flex justify-between items-center">
-                <img src={github} alt="Icon 1" className="w-10 h-10" />
+              <a href="https://github.com/FabrizioVal" target="_blank" rel="noopener noreferrer">
+              <img src={github} alt="Icon 1" className="w-10 h-10 mt-16" />
+              </a>
                 <div className="relative inline-block text-left">
                   
-                  <img src={gmail} alt="Icon 2" className="w-14 h-10 cursor-pointer" onClick={handleCopy} />
+                <img src={gmail} alt="Icon 2" className="w-14 h-10 cursor-pointer mt-16" onClick={handleCopy} />
+                <AnimatePresence>
                   {copied && (
-                    <div className="origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
-                      <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                        <div className="block px-4 py-2 text-sm text-gray-700 cursor-default" role="menuitem">Copied to clipboard!</div>
-                      
+                    <motion.div
+                    className="origin-top absolute mb-14 top-0 right-0  w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 transform translate-y-[-100%]"
+                      initial={{ opacity: 0, scale: 0, y: 90, x:50 }}
+                      animate={{ opacity: 1, scale: 1, y: 0, x:50 }}
+                      exit={{ opacity: 0, scale: 0, y: 90, x: 50 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <div className="py-1">
+                        <p className="text-sm  text-gray-900 px-4 py-2">Copied to clipboard!</p>
                       </div>
-                    </div>
+                    </motion.div>
                   )}
+                  </AnimatePresence>
                 </div>
               </div>
             </div>
